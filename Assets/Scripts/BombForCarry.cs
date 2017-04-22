@@ -76,7 +76,7 @@ public class BombForCarry : MonoBehaviour
 				Vector3 force = deltaPos.normalized * bombForce;
 				rb.AddForce(force);
 			}
-			en.gameObject.GetComponent <PlayerHealth>().dealth();
+			en.gameObject.GetComponent <PlayerHealth>().Dealth();
 		}
 
 		// Set the explosion effect's position to the bomb's position and play the particle system.
