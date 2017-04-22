@@ -9,12 +9,12 @@ GameObject:
   m_Component:
   - component: {fileID: 400000}
   - component: {fileID: 21200000}
-  - component: {fileID: 11400000}
   - component: {fileID: 5800000}
   - component: {fileID: 6100000}
   - component: {fileID: 5000000}
+  - component: {fileID: 114530680662846560}
   m_Layer: 8
-  m_Name: bomb
+  m_Name: bomb 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,23 +125,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.84, y: 0.58}
   m_EdgeRadius: 0
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d060b6f2711747368c4bc5aae24049b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bombRadius: 7
-  bombForce: 100
-  boom: {fileID: 8300000, guid: 8b4e61c51941a46d1aac273472c814fd, type: 3}
-  fuse: {fileID: 8300000, guid: 238da4efc08184aee919af254edb2ef1, type: 3}
-  fuseTime: 1.5
-  explosion: {fileID: 100000, guid: 9c8b546f746e74328ab6b8bba733af67, type: 2}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3176,3 +3159,20 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
   m_IsPrefabParent: 1
+--- !u!114 &114530680662846560
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16a018224027b0545af508f2ffe13dd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bombRadius: 10
+  bombForce: 100
+  boom: {fileID: 8300000, guid: 8b4e61c51941a46d1aac273472c814fd, type: 3}
+  fuse: {fileID: 8300000, guid: 238da4efc08184aee919af254edb2ef1, type: 3}
+  fuseTime: 10
+  explosion: {fileID: 100000, guid: 9c8b546f746e74328ab6b8bba733af67, type: 2}
