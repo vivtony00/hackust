@@ -56,10 +56,11 @@ public class Missile : MonoBehaviour
 		//{
 		transform.position = Vector3.MoveTowards(transform.position, SelectedTarget.position, 3 * Time.deltaTime);
 		//}
-//		Vector3 vectorToTarget = targetTransform.position - transform.position;
-//		float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
-//		Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-//		transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * speed);
+		Vector3 vectorToTarget = SelectedTarget.position - transform.position;
+		float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
+		Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+		transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 90);
+
 
 	}
 	void OnExplode()
