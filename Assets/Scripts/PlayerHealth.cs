@@ -96,7 +96,35 @@ public class PlayerHealth : MonoBehaviour
 		AudioSource.PlayClipAtPoint(ouchClips[i], transform.position);
 	}
 
+	public void Dealth(){
+		health = 0;
+		UpdateHealthBar();
+//		int i = Random.Range (0, ouchClips.Length);
+//		AudioSource.PlayClipAtPoint(ouchClips[i], transform.position);
 
+		// Find all of the colliders on the gameobject and set them all to be triggers.
+		Collider2D[] cols = GetComponents<Collider2D>();
+		foreach(Collider2D c in cols)
+		{
+			c.isTrigger = true;
+		}
+
+		// Move all sprite parts of the player to the front
+		SpriteRenderer[] spr = GetComponentsInChildren<SpriteRenderer>();
+		foreach(SpriteRenderer s in spr)
+		{
+			s.sortingLayerName = "UI";
+		}
+
+		// ... disable user Player Control script
+		GetComponent<PlayerControl>().enabled = false;
+
+		// ... disable the Gun script to stop a dead guy shooting a nonexistant bazooka
+		GetComponentInChildren<Gun>().enabled = false;
+
+		// ... Trigger the 'Die' animation state
+		anim.SetTrigger("Die");
+	}
 	public void UpdateHealthBar ()
 	{
 		// Set the health bar's colour to proportion of the way between green and red based on the player's health.
