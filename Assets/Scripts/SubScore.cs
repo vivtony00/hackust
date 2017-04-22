@@ -20,7 +20,7 @@ public class SubScore : MonoBehaviour
 	void Update ()
 	{
 		// Set the score text.
-		GetComponent<GUIText>().text = "SubScore: " + subscore;
+		GetComponent<GUIText>().text = "Score2: " + subscore;
 
 		// If the score has changed...
 		if(previousScore != subscore)
