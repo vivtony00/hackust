@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
@@ -37,8 +38,10 @@ public class Timer : MonoBehaviour
 			} else {
 				GetComponent<GUIText> ().text = "Tie!";
 			}
-			pc.moveForce = 0f;
-			pc2.moveForce = 0f;
+
+		}
+		if (time < -2) {
+			UnityEngine.SceneManagement.SceneManager.LoadScene (2);
 		}
 
 	}
