@@ -56,14 +56,14 @@ public class DemoScene : MonoBehaviour {
 				titleImage.SetActive (true);
 				break;
 			case 1: 
-				startImage.SetActive(true);
-				titleImage.SetActive(false);
+				
+				titleImage.SetActive(false);startImage.SetActive(true);
 				break; 
 			case 2: 
 				count++;
 				if (count == 3) {
-					readyImage.SetActive (true);
-					startImage.SetActive (false);
+					
+					startImage.SetActive (false);readyImage.SetActive (true);
 				}
 				break; 
 			case 3:
@@ -84,7 +84,7 @@ public class DemoScene : MonoBehaviour {
 				curSceneImage = 1;
 				break;
 			}
-			curSceneImage++;
+			++curSceneImage;
 		}
 	}
 }
