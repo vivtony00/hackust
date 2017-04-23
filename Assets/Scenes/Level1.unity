@@ -293,6 +293,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1.936514
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 8401a12a35e9d44efbd45e0bba1d4969, type: 2}
+      propertyPath: nextScene
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8401a12a35e9d44efbd45e0bba1d4969, type: 2}
   m_IsPrefabParent: 0
@@ -1117,6 +1121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db918ff9199a74db6aa88c367721e08a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myGameManager: {fileID: 0}
+  time: 0
   Enemies: []
   SelectedTarget: {fileID: 127632720}
   explosion: {fileID: 100000, guid: 42404bf7d14c342f69690c9961a7530d, type: 2}
@@ -2914,6 +2920,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db918ff9199a74db6aa88c367721e08a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myGameManager: {fileID: 0}
+  time: 0
   Enemies: []
   SelectedTarget: {fileID: 127632720}
   explosion: {fileID: 100000, guid: 42404bf7d14c342f69690c9961a7530d, type: 2}

@@ -108,7 +108,7 @@ public class PlayerHealth : MonoBehaviour
 
 		// ... Trigger the 'Die' animation state
 		anim.SetTrigger("Die");
-		UnityEngine.SceneManagement.SceneManager.LoadScene (nextScene);
+		//UnityEngine.SceneManagement.SceneManager.LoadScene (nextScene);
 		//myGameManager.StageEnd(false); // loose the game
 	}
 	public void UpdateHealthBar ()
@@ -121,11 +121,12 @@ public class PlayerHealth : MonoBehaviour
 	}
 	void Update ()
 	{
-		time =20.0f - (Time.time - NowTime);
+		//time =20.0f - (Time.time - NowTime);
 		// Set the score text.
-		if (time > 0) {
-			GetComponent<GUIText> ().text = "Time: " + (int)time;
-		} /* else {
+		//if (time > 0) {
+			//GetComponent<GUIText> ().text = "Time: " + (int)time;
+		//} 
+			/* else {
 			if (score.score > subscore.subscore) {
 				GetComponent<GUIText> ().text = "Blue Win!";
 			} else if (score.score < subscore.subscore) {
@@ -134,14 +135,14 @@ public class PlayerHealth : MonoBehaviour
 				GetComponent<GUIText> ().text = "Tie!";
 			}
 		}*/
-		if (time < -2) {
+		//if (time < -2) {
 			
-			UnityEngine.SceneManagement.SceneManager.LoadScene (nextScene);
-			if (health > 0)
-				myGameManager.StageEnd(true);
-			else
-				myGameManager.StageEnd(false);
-		}
+			//UnityEngine.SceneManagement.SceneManager.LoadScene (nextScene);
+			//if (health > 0)
+			//	myGameManager.StageEnd(true);
+			//else
+				//myGameManager.StageEnd(false);
+		//}
 
 	}
 }
