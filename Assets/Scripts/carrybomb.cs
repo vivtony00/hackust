@@ -34,6 +34,7 @@ public class carrybomb : MonoBehaviour {
 			if (Time.time > explodetime)
 			{
 				bombCarrying.GetComponent<BombForCarry>().Explode();
+				UnityEngine.SceneManagement.SceneManager.LoadScene (4);
 			}
 		}
 	}
