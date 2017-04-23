@@ -74,7 +74,7 @@ public class PlayerControl2 : MonoBehaviour
 		if(jump)
 		{
 			// Set the Jump animator trigger parameter.
-			anim.SetTrigger("Jump");
+			anim.SetTrigger("Jump2");
 
 			// Play a random jump audio clip.
 			int i = Random.Range(0, jumpClips.Length);
