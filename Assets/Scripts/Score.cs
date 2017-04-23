@@ -20,12 +20,14 @@ public class Score : MonoBehaviour
 	void Update ()
 	{
 		// Set the score text.
-		GetComponent<GUIText>().text = "Score: " + score;
+		GetComponent<GUIText>().text = ""+ score;
 
 		// If the score has changed...
-		if(previousScore != score)
+		if (previousScore != score) {
 			// ... play a taunt.
-			playerControl.StartCoroutine(playerControl.Taunt());
+			playerControl.StartCoroutine (playerControl.Taunt ());
+			//GameManager.getInstance().gameCoin += score;
+		}
 
 		// Set the previous score to this frame's score.
 		previousScore = score;

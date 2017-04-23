@@ -3,6 +3,10 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {	
+	public GameManager myGameManager;
+	public float time ;					// The player's score.
+	private float NowTime;
+
 	public float health = 100f;					// The player's health.
 	public float repeatDamagePeriod = 2f;		// How frequently the player can be damaged.
 	public AudioClip[] ouchClips;				// Array of clips to play when the player is damaged.
@@ -14,6 +18,7 @@ public class PlayerHealth : MonoBehaviour
 	private Vector3 healthScale;				// The local scale of the health bar initially (with full health).
 	private PlayerControl playerControl;		// Reference to the PlayerControl script.
 	private Animator anim;						// Reference to the Animator on the player
+	public int nextScene;
 
 
 	void Awake ()
@@ -25,6 +30,7 @@ public class PlayerHealth : MonoBehaviour
 
 		// Getting the intial scale of the healthbar (whilst the player has full health).
 		healthScale = healthBar.transform.localScale;
+		myGameManager = GameManager.getInstance();
 	}
 
 
@@ -102,6 +108,8 @@ public class PlayerHealth : MonoBehaviour
 
 		// ... Trigger the 'Die' animation state
 		anim.SetTrigger("Die");
+		UnityEngine.SceneManagement.SceneManager.LoadScene (nextScene);
+		//myGameManager.StageEnd(false); // loose the game
 	}
 	public void UpdateHealthBar ()
 	{
@@ -110,5 +118,30 @@ public class PlayerHealth : MonoBehaviour
 
 		// Set the scale of the health bar to be proportional to the player's health.
 		healthBar.transform.localScale = new Vector3(healthScale.x * health * 0.01f, 1, 1);
+	}
+	void Update ()
+	{
+		time =20.0f - (Time.time - NowTime);
+		// Set the score text.
+		if (time > 0) {
+			GetComponent<GUIText> ().text = "Time: " + (int)time;
+		} /* else {
+			if (score.score > subscore.subscore) {
+				GetComponent<GUIText> ().text = "Blue Win!";
+			} else if (score.score < subscore.subscore) {
+				GetComponent<GUIText> ().text = "Red Win!";
+			} else {
+				GetComponent<GUIText> ().text = "Tie!";
+			}
+		}*/
+		if (time < -2) {
+			
+			UnityEngine.SceneManagement.SceneManager.LoadScene (nextScene);
+			if (health > 0)
+				myGameManager.StageEnd(true);
+			else
+				myGameManager.StageEnd(false);
+		}
+
 	}
 }

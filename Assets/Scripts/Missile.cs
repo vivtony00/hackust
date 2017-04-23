@@ -4,6 +4,11 @@ using System.Collections.Generic;
 
 public class Missile : MonoBehaviour
 {
+	public GameManager myGameManager;
+
+	public float time ;					// The player's score.
+	private float NowTime;
+
 	public List <Transform> Enemies;
 	public Transform SelectedTarget;
 	public GameObject explosion;
@@ -13,6 +18,7 @@ public class Missile : MonoBehaviour
 		SelectedTarget = null;
 		Enemies = new List<Transform>();
 		AddEnemiesToList();
+		myGameManager = GameManager.getInstance();
 	}
 
 	public void AddEnemiesToList()
@@ -61,7 +67,16 @@ public class Missile : MonoBehaviour
 		Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
 		transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 90);
 
+		time =20.0f - (Time.time - NowTime);
+		if (time < -2) {
 
+			UnityEngine.SceneManagement.SceneManager.LoadScene (2);
+			Destroy (gameObject);
+			/*if (health > 0)
+				myGameManager.StageEnd(true);
+			else
+				myGameManager.StageEnd(false);*/
+		}
 	}
 	void OnExplode()
 	{
@@ -81,7 +96,7 @@ public class Missile : MonoBehaviour
 			OnExplode ();
 
 			// Destroy the rocket.
-			Destroy (gameObject);
+			//Destroy (gameObject);
 		}
 	}
 }

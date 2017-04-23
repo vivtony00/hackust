@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212011395810730304}
   - component: {fileID: 95061992073985204}
   m_Layer: 0
-  m_Name: obj_cat_all-01_0
+  m_Name: obj_cat_all-prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
